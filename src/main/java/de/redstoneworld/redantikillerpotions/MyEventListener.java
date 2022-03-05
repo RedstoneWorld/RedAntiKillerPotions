@@ -58,6 +58,7 @@ public class MyEventListener implements Listener {
 	public boolean hasInvalidHealEffect(Collection<PotionEffect> effects, String sourceItemName) {
 		for (PotionEffect effect : effects) {
 
+			// "instant_health", Effect ID: 6
 			if (effect.getType().equals(PotionEffectType.HEAL)) {
 
 				int effectAmplifier = effect.getAmplifier();
