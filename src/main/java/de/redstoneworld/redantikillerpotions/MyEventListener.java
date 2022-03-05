@@ -2,6 +2,7 @@ package de.redstoneworld.redantikillerpotions;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PotionSplashEvent;
 import org.bukkit.potion.PotionEffect;
@@ -21,7 +22,7 @@ public class MyEventListener implements Listener {
 	}
 
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGH)
 	public void onPotionSplash(PotionSplashEvent event) {
 		if (event.getPotion().getShooter() instanceof Player) {
 			player = (Player) event.getPotion().getShooter();
@@ -40,7 +41,7 @@ public class MyEventListener implements Listener {
 /** The bug is not present at lingering potions.
  *
  *
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGH)
 	public void onLingeringPotionSplash(LingeringPotionSplashEvent event) {
 		if (event.getAreaEffectCloud().hasCustomEffects()) {
 
