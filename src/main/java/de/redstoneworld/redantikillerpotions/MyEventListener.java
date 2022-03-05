@@ -4,11 +4,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.LingeringPotionSplashEvent;
 import org.bukkit.event.entity.PotionSplashEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.Collection;
+import java.util.List;
 
 public class MyEventListener implements Listener {
 
@@ -38,9 +40,7 @@ public class MyEventListener implements Listener {
 		}
 	}
 
-/** The bug is not present at lingering potions.
- *
- *
+
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onLingeringPotionSplash(LingeringPotionSplashEvent event) {
 		if (event.getAreaEffectCloud().hasCustomEffects()) {
@@ -52,7 +52,7 @@ public class MyEventListener implements Listener {
 			}
 		}
 	}
-**/
+
 
 	// potion check
 	public boolean hasInvalidHealEffect(Collection<PotionEffect> effects, String sourceItemName) {
