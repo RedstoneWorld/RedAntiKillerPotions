@@ -1,11 +1,11 @@
 package de.redstoneworld.redantikillerpotions;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.LingeringPotionSplashEvent;
-import org.bukkit.event.entity.PotionSplashEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -41,6 +41,7 @@ public class MyEventListener implements Listener {
 	}
 
 
+/*
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onLingeringPotionSplash(LingeringPotionSplashEvent event) {
 		if (event.getAreaEffectCloud().hasCustomEffects()) {
@@ -48,6 +49,21 @@ public class MyEventListener implements Listener {
 			List<PotionEffect> effects = event.getAreaEffectCloud().getCustomEffects();
 
 			if (hasInvalidHealEffect(effects, "lingering_potion")) {
+				event.setCancelled(true);
+			}
+		}
+	}
+*/
+
+
+	@EventHandler(priority = EventPriority.HIGH)
+	public void onAreaEffectCloudApply(AreaEffectCloudApplyEvent event) {
+		if (event.getEntity().hasCustomEffects()) {
+
+			List<PotionEffect> effects = event.getEntity().getCustomEffects();
+
+			if (hasInvalidHealEffect(effects, "Effect-Cloud (lingering_potion or mob-spawn with entity-tag 'effects')")) {
+				event.getEntity().removeCustomEffect(PotionEffectType.HEAL);
 				event.setCancelled(true);
 			}
 		}
