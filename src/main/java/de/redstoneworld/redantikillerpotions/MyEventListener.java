@@ -37,6 +37,14 @@ public class MyEventListener implements Listener {
 					event.setCancelled(true);
 				}
 			}
+
+		} else {
+
+			Collection<PotionEffect> effects = event.getPotion().getEffects();
+
+			if (hasInvalidHealEffect(effects, "splash_potion")) {
+				event.setCancelled(true);
+			}
 		}
 	}
 
