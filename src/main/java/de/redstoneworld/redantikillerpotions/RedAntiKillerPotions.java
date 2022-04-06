@@ -11,18 +11,17 @@
 package de.redstoneworld.redantikillerpotions;
 
 import net.md_5.bungee.api.ChatColor;
+import org.apache.commons.lang.IncompleteArgumentException;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class RedAntiKillerPotions extends JavaPlugin {
 	
 	public void onEnable() {
-		
         // register events
-        new MyEventListener(this);
+        new PotionListener(this);
 
 		// save default config
 		// saveDefaultConfig();
-		
 	}
 
 	public void onDisable() {
@@ -39,6 +38,8 @@ public class RedAntiKillerPotions extends JavaPlugin {
 	 * @return the config messages (String)
 	 */
 	String getLang(String key, String... args) {
+		if(args.length % 2 != 0)
+			throw new IllegalArgumentException("Please provide a value to the key " + args[args.length - 1] + ".");
 		String lang = getConfig().getString("messages." + key, "&cUnknown language key &6" + key);
 		for (int i = 0; i + 1 < args.length; i += 2) {
 			lang = lang.replace("%" + args[i] + "%", args[i + 1]);
@@ -47,8 +48,6 @@ public class RedAntiKillerPotions extends JavaPlugin {
 	}
 	
 	boolean getBooleanOption(String key) {
-		String option = getConfig().getString("features." + key);
-		return Boolean.valueOf(option);
+		return getConfig().getBoolean("features." + key);
 	}
-
 }
