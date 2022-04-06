@@ -11,7 +11,6 @@
 package de.redstoneworld.redantikillerpotions;
 
 import net.md_5.bungee.api.ChatColor;
-import org.apache.commons.lang.IncompleteArgumentException;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class RedAntiKillerPotions extends JavaPlugin {
