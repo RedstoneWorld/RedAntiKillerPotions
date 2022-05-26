@@ -1,11 +1,11 @@
 package de.redstoneworld.redantikillerpotions;
 
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.*;
+import org.bukkit.event.entity.AreaEffectCloudApplyEvent;
+import org.bukkit.event.entity.PotionSplashEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -29,23 +29,17 @@ public class MyEventListener implements Listener {
 		if (event.getPotion().getShooter() instanceof Player) {
 			player = (Player) event.getPotion().getShooter();
 
-			Collection<PotionEffect> effects = event.getPotion().getEffects();
-
-			if (hasInvalidHealEffect(effects, "splash_potion")) {
-
-				if (!hasShootBypassPermissions(player)) {
-					event.setCancelled(true);
-				}
-			}
-
-		} else {
-
-			Collection<PotionEffect> effects = event.getPotion().getEffects();
-
-			if (hasInvalidHealEffect(effects, "splash_potion")) {
-				event.setCancelled(true);
+			if (hasShootBypassPermissions(player)) {
+				return;
 			}
 		}
+
+		Collection<PotionEffect> effects = event.getPotion().getEffects();
+
+		if (hasInvalidHealEffect(effects, "splash_potion")) {
+			event.setCancelled(true);
+		}
+
 	}
 
 

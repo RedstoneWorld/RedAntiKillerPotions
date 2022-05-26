@@ -45,10 +45,5 @@ public class RedAntiKillerPotions extends JavaPlugin {
 		}
 		return ChatColor.translateAlternateColorCodes('&', lang);
 	}
-	
-	boolean getBooleanOption(String key) {
-		String option = getConfig().getString("features." + key);
-		return Boolean.valueOf(option);
-	}
 
 }
