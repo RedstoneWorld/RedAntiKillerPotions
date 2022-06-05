@@ -12,12 +12,12 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.Collection;
 import java.util.List;
 
-public class MyEventListener implements Listener {
+public class PotionListener implements Listener {
 
 	protected final RedAntiKillerPotions plugin;
 	private Player player;
 
-	public MyEventListener(RedAntiKillerPotions plugin) {
+	public PotionListener(RedAntiKillerPotions plugin) {
 		this.plugin = plugin;
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 
