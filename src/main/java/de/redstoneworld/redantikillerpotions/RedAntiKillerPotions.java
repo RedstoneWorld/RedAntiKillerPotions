@@ -4,7 +4,7 @@
  * 
  * Permissions:
  * rwm.redantikillerpotions.shoot-bypass
- *
+ * 
  * @author Robert Rauh alias RedstoneFuture
  */
 
