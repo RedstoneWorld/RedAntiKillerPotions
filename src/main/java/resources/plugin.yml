@@ -1,7 +1,7 @@
 name: RedAntiKillerPotions
 main: de.redstoneworld.redantikillerpotions.RedAntiKillerPotions
-version: 1.1.0
-api-version: 1.17
+version: 1.1.1
+api-version: 1.19
 description: This is a small plugin to prevent killer potions.
 authors: [RedstoneFuture]
 website: https://redstoneworld.de
