@@ -16,11 +16,11 @@ public class RedAntiKillerPotions extends JavaPlugin {
 	
 	public void onEnable() {
 		
-        // register events
-        new PotionListener(this);
+		// save default config and load config
+		// ...
 
-		// save default config
-		// saveDefaultConfig();
+		// register events
+        new PotionListener(this);
 		
 	}
 
